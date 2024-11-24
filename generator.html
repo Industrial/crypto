@@ -1,64 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Generator</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-      padding: 0;
-      background-color: #f4f4f4;
-    }
-    .container {
-      display: grid;
-      gap: 10px;
-      padding: 20px;
-      background-color: white;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-    .generator-button {
-      grid-column: span 3;
-      text-align: center;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: auto 1fr auto;
-      gap: 10px;
-    }
-    button {
-      padding: 10px;
-      cursor: pointer;
-    }
-    input[type="password"] {
-      width: 100%;
-      padding: 8px;
-    }
-  </style>
 </head>
 <body>
-  <div class="container">
-    <div class="generator-button">
-      <button onclick="generateValues()">Generate</button>
-    </div>
-    <div class="grid">
-      <div>Seed Phrase</div>
-      <div><input id="seedPhrase" type="password" readonly /></div>
-      <div><button onclick="copyToClipboard('seedPhrase')">Copy</button></div>
-
-      <div>Private Key</div>
-      <div><input id="privateKey" type="password" readonly /></div>
-      <div><button onclick="copyToClipboard('privateKey')">Copy</button></div>
-    </div>
-  </div>
-
+  <table>
+    <tr>
+      <td colspan="3">
+        <button onclick="generateValues()">Generate</button>
+      </td>
+    </tr>
+    <tr>
+      <td>Seed Phrase</td>
+      <td><input id="seedPhrase" type="password" readonly /></td>
+      <td><button onclick="copyToClipboard('seedPhrase')">Copy</button></td>
+    </tr>
+    <tr>
+      <td>Private Key</td>
+      <td><input id="privateKey" type="password" readonly /></td>
+      <td><button onclick="copyToClipboard('privateKey')">Copy</button></td>
+    </tr>
+  </table>
   <script type="module">
     // I didn't put a back door in but since you are looking at the code anyway,
     // I feel like you should trust yourself more then you should trust me.
@@ -75,8 +37,10 @@
     }
 
     window.copyToClipboard = async (elementId) => {
-      const value = document.getElementById(elementId).value
+      const element = document.getElementById(elementId)
+      const value = element.value
       navigator.clipboard.writeText(value)
+      element.value = ''
     }
   </script>
 </body>
