@@ -13,16 +13,19 @@ This covers all possible attack vectors. Please correct me if I am wrong.
 
 ## Step by Step Guide
 
-1. Buy a Google Pixel phone. This is your Phone B. These are easy to customize and put a different operating system on.
-1. Replace Android with GrapheneOS. Download and install GrapheneOS on the phone.
-1. Download KeePassDX and install it on the phone. This is a Password Manager.  You are going to use it to store your seed phrase and private key.
-1. Download a wallet application that specifically supports both the QR Code functionality and pasting the seed phrase or private key into the wallet
-application with a password field that is not plain text. I recommend the app "AirGap Vault".
+### Phone B
+1. Buy a Google Pixel phone. These are easy to customize and put a different operating system on to.
+1. Replace Android with GrapheneOS. Download and install GrapheneOS on the phone. Please refer to the [GrapheneOS website](https://grapheneos.org/) for instructions.
 1. Download the HTML file in this project.
+1. Download [KeePassDX](https://keepassdx.com/) and install it on the phone.
+1. Download a wallet application that specifically supports both the QR Code functionality and pasting the seed phrase or private key into the wallet. I recommend the app [AirGap Vault](https://airgap.it/vault/).
 1. Disconnect the phone from the 5G, Wifi, Bluetooth, NFC and any other connections. Put it in flight mode.
 1. Generate the seed phrase and private key using this HTML file in the browser.
 1. Copy the seed phrase and private key into the password manager.
-1. Close the HTML file.
 1. Create a new wallet in Airgap Vault using the Private Key or Seed Phrase.
-1. Pair your wallet (Airgap Wallet, the companion app of AirGap Vault) on Phone A with the wallet on Phone B by scanning the QR code presented on Phone B in the Airgap Vault app.
-1. You can not make transactions on Phone A and verify them on Phone B.
+
+### Phone A
+1. Download and install the companion app (to AirGap Vault) called [AirGap Wallet](https://airgap.it/wallet/) on Phone A.
+1. Pair your AirGap Wallet on Phone A with the AirGap Vault on Phone B by scanning the QR code presented on Phone B in the Airgap Vault app.
+
+That's it. You are all set.
