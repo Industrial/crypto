@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Generator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+    .container {
+      display: grid;
+      gap: 10px;
+      padding: 20px;
+      background-color: white;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .generator-button {
+      grid-column: span 3;
+      text-align: center;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 10px;
+    }
+    button {
+      padding: 10px;
+      cursor: pointer;
+    }
+    input[type="password"] {
+      width: 100%;
+      padding: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="generator-button">
+      <button onclick="generate()">Generate</button>
+    </div>
+    <div class="grid">
+      <div>Seed Phrase</div>
+      <div><input id="seedPhrase" type="password" readonly /></div>
+      <div><button onclick="copyToClipboard('seedPhrase')">Copy</button></div>
+
+      <div>Private Key</div>
+      <div><input id="privateKey" type="password" readonly /></div>
+      <div><button onclick="copyToClipboard('privateKey')">Copy</button></div>
+    </div>
+  </div>
+
+  <script>
+    const generate = () => {
+      document.getElementById('seedPhrase').value = 'example-seed-phrase'
+      document.getElementById('privateKey').value = 'example-private-key'
+    }
+
+    const getInputValue = (elementId) =>
+      document.getElementById(elementId).value
+
+    const copyToClipboard = async (elementId) =>
+      navigator.clipboard.writeText(getInputValue(elementId))
+  </script>
+</body>
+</html>
