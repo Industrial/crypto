@@ -46,7 +46,7 @@
 <body>
   <div class="container">
     <div class="generator-button">
-      <button onclick="generate()">Generate</button>
+      <button onclick="generateValues()">Generate</button>
     </div>
     <div class="grid">
       <div>Seed Phrase</div>
@@ -59,17 +59,23 @@
     </div>
   </div>
 
-  <script>
-    const generate = () => {
-      document.getElementById('seedPhrase').value = 'example-seed-phrase'
-      document.getElementById('privateKey').value = 'example-private-key'
+  <script type="module">
+    import { ethers } from "https://cdnjs.cloudflare.com/ajax/libs/ethers/6.7.0/ethers.min.js";
+
+    window.generateValues = () => {
+      const mnemonic = ethers.Mnemonic.fromEntropy(ethers.randomBytes(32))
+      const wallet = ethers.Wallet.fromPhrase(mnemonic.phrase);
+      document.getElementById('seedPhrase').value = mnemonic.phrase
+      document.getElementById('privateKey').value = wallet.privateKey;
     }
 
-    const getInputValue = (elementId) =>
-      document.getElementById(elementId).value
+    window.copyToClipboard = async (elementId) => {
+      const value = document.getElementById(elementId).value
+      navigator.clipboard.writeText(value)
+    }
 
-    const copyToClipboard = async (elementId) =>
-      navigator.clipboard.writeText(getInputValue(elementId))
+    window.generateValues = generateValues
+    window.copyToClipboard = copyToClipboard
   </script>
 </body>
 </html>
