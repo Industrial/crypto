@@ -16,7 +16,7 @@ This covers all possible attack vectors. Please correct me if I am wrong.
 ### Phone B
 1. Buy a Google Pixel phone. These are easy to customize and put a different operating system on to.
 1. Replace Android with GrapheneOS. Download and install GrapheneOS on the phone. Please refer to the [GrapheneOS website](https://grapheneos.org/) for instructions.
-1. Download the HTML file in this project.
+1. Download the [HTML File](https://raw.githubusercontent.com/Industrial/crypto/refs/heads/main/generator.html) in this project. Save it on your phone.
 1. Download [KeePassDX](https://keepassdx.com/) and install it on the phone.
 1. Download a wallet application that specifically supports both the QR Code functionality and pasting the seed phrase or private key into the wallet. I recommend the app [AirGap Vault](https://airgap.it/vault/).
 1. Disconnect the phone from the 5G, Wifi, Bluetooth, NFC and any other connections. Put it in flight mode.
